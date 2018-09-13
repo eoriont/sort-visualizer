@@ -32,14 +32,15 @@ function setup() {
     colorMode(HSB, 100);
     numbs = makeRandomList();
 
-    slider = createSlider(0, 5000, 0);
+    slider = createSlider(0, 20, 0);
 }
 
 function draw() {
     background(40);
-    console.log(slider.value())
+    console.log(slider.value());
 
-    insertionSort(numbs, frameCount/(map(slider.value(), 0, 5000, 5000, 0)));
+    let time = frameCount/map(slider.value(), 0, 20, 5000, 0);
+    insertionSort(numbs, time);
 
     for (let n of numbs) {
         let index = numbs.indexOf(n);
@@ -53,7 +54,7 @@ function insertionSort(array, iteration) {
     for (let num of array) {
         let index = arr.indexOf(num);
         let fin = false;
-        let testingIndex = index-1;
+        let testingIndex = index+1;
         let iters = 0;
         while(!fin) {
           if (iters >= iteration) return;
@@ -62,12 +63,12 @@ function insertionSort(array, iteration) {
                 fin = true;
                 break;
             }
-            if (arr[testingIndex] > num) {
+            if (arr[testingIndex] < num) {
                 let temp2 = arr[index];
                 arr[index] = arr[testingIndex];
                 arr[testingIndex] = temp2;
-                index -= 1;
-                testingIndex = index-1;
+                index += 1;
+                testingIndex = index+1;
             } else {
                 fin = true;
                 break;
