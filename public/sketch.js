@@ -25,30 +25,39 @@ function getRandomInt(min, max) {
 const width = 500;
 const height = 500;
 
+var slider;
+
 function setup() {
     createCanvas(width, height);
+    colorMode(HSB, 100);
     numbs = makeRandomList();
-    console.log(numbs);
-    numbs = insertionSort(numbs);
-    console.log(numbs);
+
+    slider = createSlider(0, 5000, 0);
 }
 
 function draw() {
-    background(51);
+    background(40);
+    console.log(slider.value())
+
+    insertionSort(numbs, frameCount/(map(slider.value(), 0, 5000, 5000, 0)));
+
     for (let n of numbs) {
         let index = numbs.indexOf(n);
-        fill(sin(n/10)*255, cos(n/10)*255, sin(n/10 + Math.PI)*255)
+        fill(n*2 % 100, 100, 100);
         rect(index*(width/numbs.length), height, (width/numbs.length), -n*5);
     }
 }
 
-function insertionSort(array) {
+function insertionSort(array, iteration) {
     let arr = array;
     for (let num of array) {
         let index = arr.indexOf(num);
         let fin = false;
         let testingIndex = index-1;
+        let iters = 0;
         while(!fin) {
+          if (iters >= iteration) return;
+          iters += 1;
             if (arr[testingIndex] == null) {
                 fin = true;
                 break;
