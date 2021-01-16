@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Sorting Visualizer</title>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.6.1/p5.js"></script>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
+
+
+    <script type="text/javascript" src="mergeSort.js"></script>
+    <script type="text/javascript" src="insertionSort.js"></script>
+    <script type="text/javascript" src="sketch.js"></script>
+
+    <style>
+      body {
+        margin: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="parent"></div>
+    <input type="range" name="slider" id="slider" min="0" max="1" step="0.1" value="0">
+    <button class="btn btn-primary" id="reset">Reset</button>
+    <button class="btn btn-success" id="start">Start</button>
+    <button class="btn btn-info" id="merge">Merge Sort</button>
+    <button class="btn btn-info" id="insertion">Insertion Sort</button>
+  </body>
+</html>
